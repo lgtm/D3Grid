@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D3Grid", "D3Grid\D3Grid.csproj", "{CFC20DDC-3A2B-40D2-A4DA-19F849D2B262}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D3Grid.Mvc", "D3Grid.Mvc\D3Grid.Mvc.csproj", "{CFC20DDC-3A2B-40D2-A4DA-19F849D2B262}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FE898202-A712-48AD-942E-4EEFC7F0465F}"
 	ProjectSection(SolutionItems) = preProject
@@ -9,6 +9,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{FE8982
 		.nuget\NuGet.exe = .nuget\NuGet.exe
 		.nuget\NuGet.targets = .nuget\NuGet.targets
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D3Grid.Core", "D3Grid.Core\D3Grid.Core.csproj", "{EE078702-FF84-4C64-B1B0-F7468D557FEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,6 +22,10 @@ Global
 		{CFC20DDC-3A2B-40D2-A4DA-19F849D2B262}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFC20DDC-3A2B-40D2-A4DA-19F849D2B262}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFC20DDC-3A2B-40D2-A4DA-19F849D2B262}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE078702-FF84-4C64-B1B0-F7468D557FEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE078702-FF84-4C64-B1B0-F7468D557FEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE078702-FF84-4C64-B1B0-F7468D557FEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE078702-FF84-4C64-B1B0-F7468D557FEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

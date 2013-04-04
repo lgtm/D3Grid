@@ -11,8 +11,8 @@
     <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>D3Grid</RootNamespace>
-    <AssemblyName>D3Grid</AssemblyName>
+    <RootNamespace>D3Grid.Mvc</RootNamespace>
+    <AssemblyName>D3Grid.Mvc</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
@@ -106,33 +106,29 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Global.asax.cs">
-      <DependentUpon>Global.asax</DependentUpon>
-    </Compile>
+    <Compile Include="GridActionResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="App_Start\WebApiConfig.cs" />
-    <Content Include="Global.asax" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Views\Web.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-    <Folder Include="Controllers\" />
-    <Folder Include="Models\" />
-    <Folder Include="Scripts\" />
+    <Content Include="Sass\layout.scss" />
+    <Content Include="Sass\_gcgrid.scss" />
+    <Content Include="Sass\_generate_sprites.scss" />
+    <Content Include="Sass\_precompiled_sprites.scss" />
+    <Content Include="Sass\_reset.scss" />
+    <Content Include="Sass\_sprite.scss" />
+    <Content Include="Sass\_table.scss" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <Content Include="Scripts\grid\GCS.Grid.js" />
+    <Content Include="Scripts\grid\GCS.Grid.Pager.js" />
+    <Content Include="Scripts\grid\GCS.Grid.Table.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\D3Grid.Core\D3Grid.Core.csproj">
+      <Project>{EE078702-FF84-4C64-B1B0-F7468D557FEA}</Project>
+      <Name>D3Grid.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
