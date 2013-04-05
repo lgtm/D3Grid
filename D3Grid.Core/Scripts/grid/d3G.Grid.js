@@ -8,12 +8,12 @@ markup format:
 </div>
 */
 
-var GCS = GCS || {};
-GCS.Grid = (function ($, undefined) {
+var d3G = d3G || {};
+d3G.Grid = (function ($, undefined) {
 	
 	function _ensureOptions(options) {
 		if (typeof options.dataUrl !== 'string') {
-			throw 'GCS.Grid: `dataUrl` must be a string (url)!';
+			throw 'd3G.Grid: `dataUrl` must be a string (url)!';
 		}
 	}
 
@@ -23,8 +23,8 @@ GCS.Grid = (function ($, undefined) {
 		
 		_ensureOptions(opt);
 
-		var table = GCS.Grid.Table.create(opt),
-			pager = GCS.Grid.Pager.create(opt),
+		var table = d3G.Grid.Table.create(opt),
+			pager = d3G.Grid.Pager.create(opt),
 			pageCache;
 
 		function _getPageAndSortParameters() {
@@ -38,7 +38,7 @@ GCS.Grid = (function ($, undefined) {
 		}
 
 		function _startDataLoad(pageAndSortParameters) {
-			GCS.Modals.Loading.show({ showCurtain: false, selector: opt.containerSelector });
+			d3G.Modals.Loading.show({ showCurtain: false, selector: opt.containerSelector });
 
 			pageAndSortParameters = pageAndSortParameters || _getPageAndSortParameters();
 
@@ -57,16 +57,16 @@ GCS.Grid = (function ($, undefined) {
 		}
 
 		function _finishDataLoad(gridData) {
-			GCS.Modals.Loading.hide({ showCurtain: false, selector: opt.containerSelector });
+			d3G.Modals.Loading.hide({ showCurtain: false, selector: opt.containerSelector });
 
 			table.render(gridData);
 			pager.render(gridData);
 		}
 		
 		function _dataLoadFailed() {
-			GCS.Modals.Loading.hide({ showCurtain: false, selector: opt.containerSelector });
+			d3G.Modals.Loading.hide({ showCurtain: false, selector: opt.containerSelector });
 
-			GCS.Modals.AlertMessage.show({ text: 'An error occurred. Please try again.' });
+			d3G.Modals.AlertMessage.show({ text: 'An error occurred. Please try again.' });
 		}
 
 		table.sortColumnChanged.addHandler(function() {

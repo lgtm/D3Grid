@@ -1,0 +1,36 @@
+﻿@model dynamic
+@{
+	Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<title>title</title>
+		<link href="~/Content/Site.css" rel="stylesheet" />
+	</head>
+	<body>
+		
+		<div id="GridContainer">
+			<table id="GridTable"></table>
+			<div id="GridPager"></div>
+		</div>
+
+		<script src="~/Scripts/jquery-1.9.1.min.js"></script>
+		<script>
+			(function() {
+				var demoGrid = d3G.Grid.create({
+					containerSelector: '#GridContainer',
+					tableSelector: '#GridTable',
+					pagerSelector: '#GridPager',
+					defaultSortColumn: 'Name',
+					tableTitle: 'Orders',
+					dataUrl: '/home/ordersjson'
+				});
+
+				demoGrid.render();
+			}())
+		</script>
+	</body>
+</html>

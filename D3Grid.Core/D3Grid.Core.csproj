@@ -52,6 +52,30 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="StringExtensions.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sass\_gcgrid.scss" />
+    <Content Include="Scripts\grid\d3G.Grid.js" />
+    <Content Include="Scripts\grid\d3G.Grid.Pager.js" />
+    <Content Include="Scripts\grid\d3G.Grid.Table.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sass\_generate_sprites.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sass\_precompiled_sprites.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sass\_reset.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sass\_sprite.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sass\_table.scss" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sass\layout.scss" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

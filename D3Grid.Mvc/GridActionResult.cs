@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
+using D3Grid.Core;
 
-namespace D3Grid.Core
+namespace D3Grid.Mvc
 {
 	public class GridActionResult<TGridRow> : ActionResult
 		where TGridRow : class
