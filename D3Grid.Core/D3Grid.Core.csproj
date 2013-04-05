@@ -7,7 +7,7 @@
     <ProjectGuid>{EE078702-FF84-4C64-B1B0-F7468D557FEA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>D3Grid.Core</RootNamespace>
+    <RootNamespace>D3Grid</RootNamespace>
     <AssemblyName>D3Grid.Core</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

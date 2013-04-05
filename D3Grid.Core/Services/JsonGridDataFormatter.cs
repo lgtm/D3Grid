@@ -3,7 +3,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 
-namespace D3Grid.Core
+namespace D3Grid
 {
 	public class JsonGridDataFormatter : IGridDataFormatter
 	{

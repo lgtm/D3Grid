@@ -1,4 +1,4 @@
-﻿using D3Grid.Core;
+﻿using D3Grid;
 
 namespace D3Grid.Mvc4Demo.Models
 {

@@ -1,4 +1,4 @@
-﻿namespace D3Grid.Core
+﻿namespace D3Grid
 {
 	public class PagerSorter
 	{

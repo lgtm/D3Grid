@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using D3Grid.Core;
+using D3Grid;
 
 namespace D3Grid.Mvc
 {

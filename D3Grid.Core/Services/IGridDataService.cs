@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace D3Grid.Core
+namespace D3Grid
 {
 	public interface IGridDataService
 	{

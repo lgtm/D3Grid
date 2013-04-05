@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace D3Grid.Core
+namespace D3Grid
 {
 	public interface IGridDataFormatter
 	{

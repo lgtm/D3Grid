@@ -1,5 +1,5 @@
 ﻿
-namespace D3Grid.Core
+namespace D3Grid
 {
 	public static class StringExtensions
 	{

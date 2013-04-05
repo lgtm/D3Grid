@@ -1,7 +1,8 @@
 ﻿using System;
 
-namespace D3Grid.Core
+namespace D3Grid
 {
+	[AttributeUsage(AttributeTargets.Field | AttributeTargets.Property, AllowMultiple = false, Inherited = false)]
 	public class GridIncludeAttribute : Attribute
 	{
 		public GridIncludeAttribute()
