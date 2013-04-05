@@ -50,7 +50,7 @@ namespace D3Grid.Mvc
 			get
 			{
 				if (_gridDataService == null)
-					_gridDataService = DependencyResolver.Current.GetService<IGridDataService>() ?? new GridDataService();
+					_gridDataService = DependencyResolver.Current.GetService<IGridDataService>() ?? new DefaultGridDataService();
 
 				return _gridDataService;
 			}

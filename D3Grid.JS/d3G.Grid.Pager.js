@@ -1,4 +1,4 @@
-﻿/*jshint undef:true, es5:true */
+﻿/*jshint undef:true, es5:true, camelcase:true, forin:true, curly:true, eqeqeq:true */
 /*global window */
 
 /// <reference path="Scripts/d3.v3.js" />
@@ -13,9 +13,9 @@ d3G.Grid.Pager = (function ($, d3, d3G, window, undefined) {
 
 	function _create(opt) {
 
-		var page_size_options = [10, 20, 50],
+		var pageSizeOptions = [10, 20, 50],
 			pageIndex = 0,
-			pageSize = page_size_options[0],
+			pageSize = pageSizeOptions[0],
 			pageChangedCallbacks = $.Callbacks(),
 			pageSizeChangedCallbacks = $.Callbacks(),
 			totalPages = 0,
@@ -45,7 +45,7 @@ d3G.Grid.Pager = (function ($, d3, d3G, window, undefined) {
 					pageSizeChangedCallbacks.fire();
 				})
 				.selectAll('option')
-				.data(page_size_options)
+				.data(pageSizeOptions)
 				.enter()
 				.append('option')
 				.attr('val', function (d) { return d; })
@@ -62,8 +62,8 @@ d3G.Grid.Pager = (function ($, d3, d3G, window, undefined) {
 			var navigationWrapperObj = { classed: 'd3g-pager-nav' };
 			var buttons = [
 				{ Label: 'First', Icon: 'd3g-first', UpdatePageIndex: function () { pageIndex = 0; } },
-				{ Label: 'Previous', Icon: 'd3g-previous', UpdatePageIndex: function () { if (pageIndex !== 0) pageIndex -= 1; } },
-				{ Label: 'Next', Icon: 'd3g-next', UpdatePageIndex: function () { if (pageIndex !== totalPages - 1) pageIndex += 1; } },
+				{ Label: 'Previous', Icon: 'd3g-previous', UpdatePageIndex: function () { if (pageIndex !== 0) { pageIndex -= 1; } } },
+				{ Label: 'Next', Icon: 'd3g-next', UpdatePageIndex: function () { if (pageIndex !== totalPages - 1) { pageIndex += 1; } } },
 				{ Label: 'Last', Icon: 'd3g-last', UpdatePageIndex: function () { pageIndex = totalPages - 1; } }
 			];
 

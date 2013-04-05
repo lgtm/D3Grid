@@ -1,6 +1,6 @@
 ﻿namespace D3Grid
 {
-	public class PagerSorter
+	public sealed class PagerSorter
 	{
 		public int PageSize { get; set; }
 		public int PageNumber { get; set; }

@@ -1,7 +1,7 @@
 ﻿
 namespace D3Grid
 {
-	public static class StringExtensions
+	internal static class StringExtensions
 	{
 		public static string HtmlEncode(this string target)
 		{

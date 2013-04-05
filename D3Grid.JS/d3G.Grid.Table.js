@@ -1,4 +1,4 @@
-﻿/*jshint undef:true, es5:true, unused:false */
+﻿/*jshint undef:true, es5:true, camelcase:true, forin:true, curly:true, eqeqeq:true */
 /*global window */
 
 /// <reference path="Scripts/d3.v3.js" />
@@ -157,14 +157,16 @@
 							if (formatters.custom) {
 								customFormatter = formatters.custom[columnName];
 
-								if (typeof customFormatter === 'function')
+								if (typeof customFormatter === 'function') {
 									return customFormatter(datum, rowData);
+								}
 							}
 
 							// check for a custom formatter on the column object.
 							customFormatter = d.formatter;
-							if (typeof customFormatter === 'function')
+							if (typeof customFormatter === 'function') {
 								return customFormatter(datum, rowData);
+							}
 
 							return formatters[d.format](datum, rowData);
 						});

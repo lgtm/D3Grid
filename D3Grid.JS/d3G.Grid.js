@@ -1,4 +1,4 @@
-﻿/*jshint undef:true, es5:true */
+﻿/*jshint undef:true, es5:true, camelcase:true, forin:true, curly:true, eqeqeq:true */
 /*global window */
 
 /// <reference path="Scripts/jquery-1.9.1.intellisense.js" />

@@ -47,6 +47,7 @@
     <Compile Include="GridIncludeType.cs" />
     <Compile Include="GridRequestModel.cs" />
     <Compile Include="PagerSorter.cs" />
+    <Compile Include="Services\DefaultGridDataService.cs" />
     <Compile Include="Services\IGridDataFormatter.cs" />
     <Compile Include="Services\IGridDataService.cs" />
     <Compile Include="Services\JsonGridDataFormatter.cs" />
