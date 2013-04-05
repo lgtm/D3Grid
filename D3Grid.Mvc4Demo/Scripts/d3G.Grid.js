@@ -31,7 +31,7 @@ d3G.Grid = (function ($, undefined) {
 		}
 
 		function _startDataLoad(pageAndSortParameters) {
-			d3G.Modals.Loading.show({ showCurtain: false, selector: opt.containerSelector });
+			//d3G.Modals.Loading.show({ showCurtain: false, selector: opt.containerSelector });
 
 			pageAndSortParameters = pageAndSortParameters || _getPageAndSortParameters();
 
@@ -50,16 +50,16 @@ d3G.Grid = (function ($, undefined) {
 		}
 
 		function _finishDataLoad(gridData) {
-			d3G.Modals.Loading.hide({ showCurtain: false, selector: opt.containerSelector });
+			//d3G.Modals.Loading.hide({ showCurtain: false, selector: opt.containerSelector });
 
 			table.render(gridData);
 			pager.render(gridData);
 		}
 
 		function _dataLoadFailed() {
-			d3G.Modals.Loading.hide({ showCurtain: false, selector: opt.containerSelector });
+			//d3G.Modals.Loading.hide({ showCurtain: false, selector: opt.containerSelector });
 
-			d3G.Modals.AlertMessage.show({ text: 'An error occurred. Please try again.' });
+			//d3G.Modals.AlertMessage.show({ text: 'An error occurred. Please try again.' });
 		}
 
 		table.sortColumnChanged.addHandler(function () {

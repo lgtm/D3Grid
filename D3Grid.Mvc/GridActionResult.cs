@@ -11,7 +11,6 @@ namespace D3Grid.Mvc
 		private readonly IEnumerable<TGridRow> _currentPage;
 		private readonly int _totalRowCount;
 		private readonly string _footerText;
-
 		private const string AcceptAllContentType = "*/*";
 		private const string JsonContentType = "application/json";
 
@@ -40,10 +39,21 @@ namespace D3Grid.Mvc
 		public override void ExecuteResult(ControllerContext context)
 		{
 			var format = GetDataFormat(context);
-			var gridDataService = DependencyResolver.Current.GetService<IGridDataService>();
 
 			context.HttpContext.Response.ContentType = format;
-			context.HttpContext.Response.Write(gridDataService.GetData(_currentPage, _totalRowCount, format, _footerText));
+			context.HttpContext.Response.Write(GridDataService.GetData(_currentPage, _totalRowCount, format, _footerText));
+		}
+
+		private IGridDataService _gridDataService;
+		protected IGridDataService GridDataService
+		{
+			get
+			{
+				if (_gridDataService == null)
+					_gridDataService = DependencyResolver.Current.GetService<IGridDataService>() ?? new GridDataService();
+
+				return _gridDataService;
+			}
 		}
 	}
 }

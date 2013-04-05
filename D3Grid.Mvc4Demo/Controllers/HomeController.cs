@@ -18,7 +18,10 @@ namespace D3Grid.Mvc4Demo.Controllers
 		{
 			var viewModels = new List<OrderGridRowViewModel>();
 
-			for (int i = 1; i < 26; i++)
+			var numToSkip = request.PageSize*request.PageIndex;
+			var numToReturn = request.PageSize*(request.PageIndex + 1);
+
+			for (int i = numToSkip; i < numToReturn; i++)
 			{
 				viewModels.Add(new OrderGridRowViewModel()
 				{
@@ -27,7 +30,7 @@ namespace D3Grid.Mvc4Demo.Controllers
 				});
 			}
 
-			return this.GridRows(viewModels, viewModels.Count, "This is a footer note about this data.");
+			return this.GridRows(viewModels, 100, "This is a footer note about this data.");
 		}
 	}
 }
