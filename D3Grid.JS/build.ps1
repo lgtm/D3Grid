@@ -48,4 +48,4 @@ Write-Host "Building bin\d3Grid.min.js... " -NoNewline -ForegroundColor Yellow
 & "..\tools\ajaxmin\AjaxMin.exe" bin\d3Grid.js -out bin\d3Grid.min.js -clobber > $output
 (Get-Content $output)[6] | Write-Host -ForegroundColor Green
 
-# Remove-Item $output -Force
+Remove-Item $output -Force

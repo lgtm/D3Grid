@@ -19,13 +19,13 @@
 	}
 
 	function getTableStyling(opt) {
-		var data = opt.tableStyling;
+		var data = opt.tableStyling || {};
 		var stylingClasses = 'table d3g-table';
 
-		var bordered = (typeof data !== 'undefined' && typeof data.bordered !== 'undefined') ? data.bordered : true;
-		var condensed = (typeof data !== 'undefined' && typeof data.bordered !== 'undefined') ? data.condensed : false;
-		var striped = (typeof data !== 'undefined' && typeof data.striped !== 'undefined') ? data.striped : true;
-		var hovered = (typeof data !== 'undefined' && typeof data.hovered !== 'undefined') ? data.hovered : true;
+		var bordered = typeof data.bordered !== 'undefined' ? data.bordered : true;
+		var condensed = typeof data.bordered !== 'undefined' ? data.condensed : false;
+		var striped = typeof data.striped !== 'undefined' ? data.striped : true;
+		var hovered = typeof data.hovered !== 'undefined' ? data.hovered : true;
 
 		stylingClasses += (bordered) ? ' table-bordered' : '';
 		stylingClasses += (condensed) ? ' table-condensed' : '';
