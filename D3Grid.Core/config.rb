@@ -15,6 +15,7 @@ javascripts_dir = "Scripts"
 relative_assets = true
 
 # To disable debugging comments that display the original location of your selectors. Uncomment:
-line_comments = true
+# line_comments = true
 
-output_style = (environment == :production) ? :compressed : :expanded
+# output_style = (environment == :production) ? :compressed : :expanded
+output_style = :compressed

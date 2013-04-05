@@ -69,9 +69,6 @@
     <Content Include="Content\images\d3g\icon-sort-desc.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\source\_reset.scss" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Content\source\_sprite.scss" />
   </ItemGroup>
   <ItemGroup>
