@@ -1,4 +1,4 @@
-﻿/*jsh/*jshint undef:true, es5:true */
+﻿/*jshint undef:true, es5:true, unused:false */
 /*global window */
 
 /// <reference path="Scripts/d3.v3.js" />
