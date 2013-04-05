@@ -55,7 +55,6 @@
     <Compile Include="StringExtensions.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="D3 LICENSE.txt" />
     <Content Include="Content\images\d3g\icon-back-green.png" />
     <Content Include="Content\images\d3g\icon-back.png" />
     <Content Include="Content\images\d3g\icon-first-green.png" />
@@ -68,14 +67,6 @@
     <Content Include="Content\images\d3g\icon-next.png" />
     <Content Include="Content\images\d3g\icon-sort-asc.png" />
     <Content Include="Content\images\d3g\icon-sort-desc.png" />
-    <Content Include="Scripts\d3.v3.js" />
-    <Content Include="Scripts\d3.v3.min.js" />
-    <Content Include="Scripts\grid\d3G.Grid.js" />
-    <Content Include="Scripts\grid\d3G.Grid.Pager.js" />
-    <Content Include="Scripts\grid\d3G.Grid.Table.js" />
-    <Content Include="Scripts\jquery-1.9.1.intellisense.js" />
-    <Content Include="Scripts\jquery-1.9.1.js" />
-    <Content Include="Scripts\jquery-1.9.1.min.js" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\source\_reset.scss" />
@@ -89,16 +80,13 @@
   <ItemGroup>
     <None Include="Content\source\_bootstrap-custom.scss" />
     <None Include="Content\source\_colors.scss" />
-    <None Include="packages.config" />
-    <None Include="Scripts\jquery-1.9.1.min.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\style\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>xcopy /y "$(ProjectDir)Scripts\grid\*.js" "$(SolutionDir)D3Grid.Mvc4Demo\Scripts\"
-xcopy /y "$(ProjectDir)Content\style\*.css" "$(SolutionDir)D3Grid.Mvc4Demo\Content\style\"
+    <PostBuildEvent>xcopy /y "$(ProjectDir)Content\style\*.css" "$(SolutionDir)D3Grid.Mvc4Demo\Content\style\"
 xcopy /y "$(ProjectDir)Content\images\*.png" "$(SolutionDir)D3Grid.Mvc4Demo\Content\images\"</PostBuildEvent>
   </PropertyGroup>
   <Import Project="$(SolutionDir)\.nuget\nuget.targets" />

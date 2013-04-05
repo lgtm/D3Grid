@@ -1,12 +1,15 @@
-﻿/// <reference path="../jquery-1.9.1.intellisense.js" />
-/// <reference path="../d3.v3.js" />
+﻿/*jshint undef:true, es5:true */
+/*global window */
+
+/// <reference path="Scripts/d3.v3.js" />
+/// <reference path="Scripts/jquery-1.9.1.intellisense.js" />
 /// <reference path="d3G.Grid.js" />
 /// <reference path="d3G.Grid.Table.js" />
 
 var d3G = d3G || {};
 d3G.Grid = d3G.Grid || {};
 
-d3G.Grid.Pager = (function ($, d3, undefined) {
+d3G.Grid.Pager = (function ($, d3, d3G, window, undefined) {
 
 	function _create(opt) {
 
@@ -47,7 +50,7 @@ d3G.Grid.Pager = (function ($, d3, undefined) {
 				.append('option')
 				.attr('val', function (d) { return d; })
 				.text(function (d) { return d; })
-				.filter(function (d) { return d == pageSize; })
+				.filter(function (d) { return d === pageSize; })
 				.attr('selected', 'selected');
 
 			var pagerSizerAppendedLabel = createSingleDomElement(pagerSizer, pagerSizerAppendedObj, 'span');
@@ -59,8 +62,8 @@ d3G.Grid.Pager = (function ($, d3, undefined) {
 			var navigationWrapperObj = { classed: 'd3g-pager-nav' };
 			var buttons = [
 				{ Label: 'First', Icon: 'd3g-first', UpdatePageIndex: function () { pageIndex = 0; } },
-				{ Label: 'Previous', Icon: 'd3g-previous', UpdatePageIndex: function () { if (pageIndex != 0) pageIndex -= 1; } },
-				{ Label: 'Next', Icon: 'd3g-next', UpdatePageIndex: function () { if (pageIndex != totalPages - 1) pageIndex += 1; } },
+				{ Label: 'Previous', Icon: 'd3g-previous', UpdatePageIndex: function () { if (pageIndex !== 0) pageIndex -= 1; } },
+				{ Label: 'Next', Icon: 'd3g-next', UpdatePageIndex: function () { if (pageIndex !== totalPages - 1) pageIndex += 1; } },
 				{ Label: 'Last', Icon: 'd3g-last', UpdatePageIndex: function () { pageIndex = totalPages - 1; } }
 			];
 
@@ -112,8 +115,8 @@ d3G.Grid.Pager = (function ($, d3, undefined) {
 			pagerFullScreenMessage.text('Press `ESC` To Exit Fullscreen Mode');
 
 			// 'ESC' Exits from fullscreen mode
-			$(document).keyup(function (e) {
-				if (e.keyCode == 27) {
+			$(window).keyup(function (e) {
+				if (e.keyCode === 27) {
 					$('.d3g-container').removeClass('d3g-fullscreen');
 				}
 			});
@@ -169,7 +172,7 @@ d3G.Grid.Pager = (function ($, d3, undefined) {
 			var wrapperClassObj = { classed: 'd3g-pager-footer-text', 'content': content },
 				footerTextContainer = {};
 
-			var footerTextContainer = createSingleDomElement(pagerContainer, wrapperClassObj);
+			footerTextContainer = createSingleDomElement(pagerContainer, wrapperClassObj);
 			footerTextContainer.text(wrapperClassObj.content);
 
 		}
@@ -226,10 +229,11 @@ d3G.Grid.Pager = (function ($, d3, undefined) {
 					.classed('d3g-pager', true)
 					.selectAll('div')
 					.data(wrapperPagerObject);
+				
 				pagerContainer
 					.enter()
 					.append('div')
-					.attr('class', function (d) { return d.classed; })
+					.attr('class', function(d) { return d.classed; });
 
 
 				pagerTopWrapper = createSingleDomElement(pagerContainer, topWrapperObject);
@@ -266,8 +270,8 @@ d3G.Grid.Pager = (function ($, d3, undefined) {
 		};
 	}
 
-	return {
-		create: _create,
+	d3G.Grid.Pager = {
+		create: _create
 	};
 
-})(jQuery, d3);
+}(window.jQuery, window.d3, window.d3G, window));

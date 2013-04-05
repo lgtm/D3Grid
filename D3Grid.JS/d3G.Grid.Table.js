@@ -1,15 +1,15 @@
-﻿/// <reference path="../jquery-1.9.1.intellisense.js" />
-/// <reference path="../d3.v3.js" />
+﻿/*jsh/*jshint undef:true, es5:true */
+/*global window */
+
+/// <reference path="Scripts/d3.v3.js" />
+/// <reference path="Scripts/jquery-1.9.1.intellisense.js" />
 /// <reference path="d3G.Grid.js" />
 
-var d3G = d3G || {};
-d3G.Grid = d3G.Grid || {};
+(function ($, d3, d3G, handlebars, window, undefined) {
 
-d3G.Grid.Table = (function ($, d3, undefined) {
-	
-	function createHeader(opt){
-		if(opt.tableTitle ) {
-			var headerContainer = d3.select(opt.containerSelector)
+	function createHeader(opt) {
+		if (opt.tableTitle) {
+			d3.select(opt.containerSelector)
 				.insert('div', opt.tableSelector)
 				.classed('d3g-header', true)
 				.append('span')
@@ -17,27 +17,28 @@ d3G.Grid.Table = (function ($, d3, undefined) {
 				.html(opt.tableTitle);
 		}
 	}
-	
-	function getTableStyling(opt){
+
+	function getTableStyling(opt) {
 		var data = opt.tableStyling;
 		var stylingClasses = 'table d3g-table';
 
-		var bordered 	=	(typeof data !== 'undefined' && typeof data.bordered !== 'undefined') ? data.bordered : true;
-		var condensed 	=	(typeof data !== 'undefined' && typeof data.bordered !== 'undefined') ? data.condensed : false;
-		var striped 	=	(typeof data !== 'undefined' && typeof data.striped !== 'undefined') ? data.striped : true;
-		var hovered 	=	(typeof data !== 'undefined' && typeof data.hovered !== 'undefined') ? data.hovered : true;
-		
+		var bordered = (typeof data !== 'undefined' && typeof data.bordered !== 'undefined') ? data.bordered : true;
+		var condensed = (typeof data !== 'undefined' && typeof data.bordered !== 'undefined') ? data.condensed : false;
+		var striped = (typeof data !== 'undefined' && typeof data.striped !== 'undefined') ? data.striped : true;
+		var hovered = (typeof data !== 'undefined' && typeof data.hovered !== 'undefined') ? data.hovered : true;
+
 		stylingClasses += (bordered) ? ' table-bordered' : '';
 		stylingClasses += (condensed) ? ' table-condensed' : '';
 		stylingClasses += (striped) ? ' table-striped' : '';
 		stylingClasses += (hovered) ? ' table-hovered' : '';
 
-		return stylingClasses; 
+		return stylingClasses;
 	}
-	
+
 	function _create(opt) {
 		createHeader(opt);
 		$(opt.tableSelector).wrap('<div class="d3g-table-wrapper" />');
+
 		var sortChangedCallbacks = $.Callbacks(),
 			sortColumnName = opt.defaultSortColumn || '',
 			sortAscending = (opt.defaultSortDirection && opt.defaultSortDirection === 'Descending') ? false : true,
@@ -49,8 +50,8 @@ d3G.Grid.Table = (function ($, d3, undefined) {
 				Handlebars: (function () {
 					var templates = {};
 
-					return function(str, obj) {
-						var f = templates[str] || (templates[str] = Handlebars.compile($('<div />').html(str).text()));
+					return function (str, obj) {
+						var f = templates[str] || (templates[str] = handlebars.compile($('<div />').html(str).text()));
 						return f(obj);
 					};
 				})()
@@ -70,7 +71,7 @@ d3G.Grid.Table = (function ($, d3, undefined) {
 			sortChangedCallbacks.fire();
 		});
 
-		if (opt.onCellClick){
+		if (opt.onCellClick) {
 			$(opt.tableSelector).on('click', 'tbody tr td', function () {
 				var cell = this;
 				opt.onCellClick(cell);
@@ -79,11 +80,11 @@ d3G.Grid.Table = (function ($, d3, undefined) {
 
 		return {
 			render: function (data) {
-				
-				var visibleColumns = $.grep(data.columns, function (column) { return column.includeType == 'Column'; });
-				
+
+				var visibleColumns = $.grep(data.columns, function (column) { return column.includeType === 'Column'; });
+
 				var $table = $(opt.tableSelector);
-				$table.empty();	
+				$table.empty();
 				var tableStyling = getTableStyling(opt);
 
 				var table = d3.select(opt.tableSelector)
@@ -105,7 +106,7 @@ d3G.Grid.Table = (function ($, d3, undefined) {
 								classValues = classValues + ' d3g-sortable';
 							}
 
-							if (d.sortColumnName == sortColumnName) {
+							if (d.sortColumnName === sortColumnName) {
 								classValues = classValues + ' d3g-sort-active';
 
 								if (sortAscending) {
@@ -129,7 +130,7 @@ d3G.Grid.Table = (function ($, d3, undefined) {
 								content += '<span class="text-icon d3g-sort-icon"></span>';
 							}
 							return content;
-							
+
 						}),
 
 					tableBody = table
@@ -144,7 +145,7 @@ d3G.Grid.Table = (function ($, d3, undefined) {
 						.data(visibleColumns)
 						.enter()
 						.append('td')
-						.attr('class', function(d){return 'd3g-content-' + d.index})
+						.attr('class', function (d) { return 'd3g-content-' + d.index; })
 						.html(function (d, columnIndex, rowIndex) {
 
 							var columnName = d.name,
@@ -168,7 +169,7 @@ d3G.Grid.Table = (function ($, d3, undefined) {
 							return formatters[d.format](datum, rowData);
 						});
 			},
-			
+
 			sortColumnChanged: {
 				addHandler: function (cb) { sortChangedCallbacks.add(cb); },
 				removeHandler: function (cb) { sortChangedCallbacks.remove(cb); }
@@ -176,14 +177,14 @@ d3G.Grid.Table = (function ($, d3, undefined) {
 			getSortParameters: function () {
 				return {
 					SortColumnName: sortColumnName,
-					SortOrder: sortAscending ? 'Ascending' : 'Descending',
+					SortOrder: sortAscending ? 'Ascending' : 'Descending'
 				};
 			}
 		};
 	}
 
-	return {
-		create: _create,
+	d3G.Grid.Table = {
+		create: _create
 	};
 
-})(jQuery, d3);
+}(window.jQuery, window.d3, window.d3G, window.Handlebars || {}, window));

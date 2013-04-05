@@ -16,6 +16,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Examples", "Examples", "{71
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D3Grid.Mvc4Demo", "D3Grid.Mvc4Demo\D3Grid.Mvc4Demo.csproj", "{31CB8A7C-6567-419E-B1B9-CA393BFF4270}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "D3Grid.JS", "D3Grid.JS\D3Grid.JS.csproj", "{2652E19A-E6CE-4CB8-A2C0-07A8B27FC26C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "build", "build", "{D251FA96-ABC6-4C71-9359-3B74A28A4BE0}"
+	ProjectSection(SolutionItems) = preProject
+		build\D3Grid.versions.targets = build\D3Grid.versions.targets
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,6 +41,10 @@ Global
 		{31CB8A7C-6567-419E-B1B9-CA393BFF4270}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31CB8A7C-6567-419E-B1B9-CA393BFF4270}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31CB8A7C-6567-419E-B1B9-CA393BFF4270}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2652E19A-E6CE-4CB8-A2C0-07A8B27FC26C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2652E19A-E6CE-4CB8-A2C0-07A8B27FC26C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2652E19A-E6CE-4CB8-A2C0-07A8B27FC26C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2652E19A-E6CE-4CB8-A2C0-07A8B27FC26C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

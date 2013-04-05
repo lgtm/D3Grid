@@ -43,3 +43,9 @@ the `sortColumnName` should also be set to a value that represents the column ke
 2. `Html` - raw html
 3. `Currency` - formats the value with currency symbol and commas
 4. `Handlebars` - a client-side handlebars formatter; e.g. `"{{#if CanEdit}}&lt;a href='/order/edit/{{OrderId}}'&gt;Edit&lt;/a&gt;{{/if}}"`
+
+
+## Contributing
+1. install nodejs (with npm)
+2. install jshint (http://jshint.com/install/)
+3. open visual studio and go!

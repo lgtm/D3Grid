@@ -1,8 +1,10 @@
-﻿/// <reference path="../jquery-1.9.1.intellisense.js" />
-/// <reference path="../d3.v3.js" />
+﻿/*jshint undef:true, es5:true */
+/*global window */
 
-var d3G = d3G || {};
-d3G.Grid = (function ($, undefined) {
+/// <reference path="Scripts/jquery-1.9.1.intellisense.js" />
+/// <reference path="Scripts/d3.v3.js" />
+
+(function ($, d3, d3G, window, undefined) {
 
 	function _ensureOptions(options) {
 		if (typeof options.dataUrl !== 'string') {
@@ -43,23 +45,15 @@ d3G.Grid = (function ($, undefined) {
 				type: 'POST'
 			}).done(function (data) {
 				pageCache[pageAndSortParameters.PageIndex] = data;
-				_finishDataLoad(data);
+				
+				//d3G.Modals.Loading.hide({ showCurtain: false, selector: opt.containerSelector });
+
+				table.render(data);
+				pager.render(data);
 			}).fail(function () {
-				_dataLoadFailed();
+				//d3G.Modals.Loading.hide({ showCurtain: false, selector: opt.containerSelector });
+				//d3G.Modals.AlertMessage.show({ text: 'An error occurred. Please try again.' });
 			});
-		}
-
-		function _finishDataLoad(gridData) {
-			//d3G.Modals.Loading.hide({ showCurtain: false, selector: opt.containerSelector });
-
-			table.render(gridData);
-			pager.render(gridData);
-		}
-
-		function _dataLoadFailed() {
-			//d3G.Modals.Loading.hide({ showCurtain: false, selector: opt.containerSelector });
-
-			//d3G.Modals.AlertMessage.show({ text: 'An error occurred. Please try again.' });
 		}
 
 		table.sortColumnChanged.addHandler(function () {
@@ -72,7 +66,11 @@ d3G.Grid = (function ($, undefined) {
 			var pageAndSortParameters = _getPageAndSortParameters();
 
 			if (pageCache[pageAndSortParameters.PageIndex]) {
-				_finishDataLoad(pageCache[pageAndSortParameters.PageIndex]);
+				var gridData = pageCache[pageAndSortParameters.PageIndex];
+				
+				//d3G.Modals.Loading.hide({ showCurtain: false, selector: opt.containerSelector });
+				table.render(gridData);
+				pager.render(gridData);
 			} else {
 				_startDataLoad(pageAndSortParameters);
 			}
@@ -99,8 +97,8 @@ d3G.Grid = (function ($, undefined) {
 		};
 	}
 
-	return {
+	d3G.Grid = {
 		create: _create
 	};
 
-})(jQuery);
+}(window.jQuery, window.d3, window.d3G || {}, window));
