@@ -1,0 +1,131 @@
+$mysprite-layout: smart;
+
+/*---------------------------------------------------------------- 
+ *								Icons
+ *--------------------------------------------------------------*/
+.ir {
+	text-indent: -9999px;
+}
+
+.icon, .d3g-icon{
+	display: block;
+}
+
+.text-icon, .d3g-text-icon{
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 5px;
+}
+
+/* ------- Table Icons ----- */
+#grid-table-pager .ui-state-hover{
+	border: none;
+	background: transparent;
+}
+
+.ui-state-hover{
+	.ui-icon.ui-icon-seek-next{
+		@extend .d3g-icon-next-green;
+	}
+
+	.ui-icon.ui-icon-seek-end{
+		@extend .d3g-icon-last-green;
+	}
+
+	.ui-icon.ui-icon-seek-prev{
+		@extend .d3g-icon-back-green;
+	}
+	.ui-icon.ui-icon-seek-first{
+		@extend .d3g-icon-first-green;
+	}
+
+}
+.ui-icon.ui-icon-seek-prev{
+	@extend .d3g-icon-back;
+}
+.ui-icon.ui-icon-seek-first{
+	@extend .d3g-icon-first;
+}
+.ui-icon.ui-icon-seek-next{
+	@extend .d3g-icon-next;
+}
+.ui-icon.ui-icon-seek-end{
+	@extend .d3g-icon-last;
+}
+
+/*---------------------------------------------------------------- 
+ *								jqgrid sorting
+ *--------------------------------------------------------------*/
+.ui-jqgrid-sortable {
+	cursor: pointer;
+}
+
+.ui-icon-asc{
+	@extend .d3g-icon-sort-asc;
+}
+
+
+.ui-icon-desc{
+	@extend .d3g-icon-sort-desc !optional;
+}
+
+.ui-icon-desc, .ui-icon-asc{
+	&.ui-state-disabled{
+		display: none;
+	}
+}
+
+/*---------------------------------------------------------------- 
+ *								d3g sorting
+ *--------------------------------------------------------------*/
+.d3g-previous{
+	@extend .d3g-icon-back;
+	text-indent: -9999px;
+
+	&:hover{
+		@extend .d3g-icon-back-green;
+	}
+}
+.d3g-first{
+	@extend .d3g-icon-first;
+	text-indent: -9999px;
+
+	&:hover{
+		@extend .d3g-icon-first-green;
+	}
+}
+.d3g-next{
+	@extend .d3g-icon-next;
+	text-indent: -9999px;
+
+	&:hover{
+		@extend .d3g-icon-next-green;
+	}
+}
+
+.d3g-last{
+	@extend .d3g-icon-last;
+	text-indent: -9999px;
+
+	&:hover{
+		@extend .d3g-icon-last-green;
+	}
+}
+
+.d3g-sortable{
+	&.d3g-sort-asc .d3g-sort-icon{
+		@extend .d3g-icon-sort-asc;
+	}
+	&.d3g-sort-desc .d3g-sort-icon{
+		@extend .d3g-icon-sort-desc;
+	}
+}
+
+.d3g-pager-fullscreen{
+	@extend .d3g-icon-fullscreen;
+	text-indent: -9999px;
+
+	&:hover{
+		@extend .d3g-icon-fullscreen-dark;
+	}
+}

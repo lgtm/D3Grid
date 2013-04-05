@@ -12,7 +12,7 @@ d3G.Grid = (function ($, undefined) {
 
 	function _create(opt) {
 
-		d3.select(opt.containerSelector).classed("gcgrid-container loading-content-container", true);
+		d3.select(opt.containerSelector).classed("d3g-container loading-content-container", true);
 
 		_ensureOptions(opt);
 

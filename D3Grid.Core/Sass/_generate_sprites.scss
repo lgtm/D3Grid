@@ -1,6 +1,0 @@
-/*---- Only Need to Use this When a new Sprite is Added ----*/
-@import "gc/*.png";
-@include all-gc-sprites(true);
-
-@import "gc-bg/*.png";
-@include all-gc-bg-sprites(true);

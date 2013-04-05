@@ -19,11 +19,11 @@ d3G.Grid.Pager = (function ($, d3, undefined) {
 			currentPage = 0;
 
 		function _createPageSizer(pagerContainer) {
-			var pagerSizerWrapperObj = { classed: 'gc-pager-sizer-wrapper' },
-				pagerSizerMessageObj = { classed: 'gc-pager-sizer-text' },
-				pagerSizerSelectObj = { classed: 'gc-pager-sizer-select-wrapper' },
-				pagerSizerSelectElementObj = { classed: 'gc-pager-sizer' },
-				pagerSizerAppendedObj = { classed: 'gc-pager-sizer-text-prepend' };
+			var pagerSizerWrapperObj = { classed: 'd3g-pager-sizer-wrapper' },
+				pagerSizerMessageObj = { classed: 'd3g-pager-sizer-text' },
+				pagerSizerSelectObj = { classed: 'd3g-pager-sizer-select-wrapper' },
+				pagerSizerSelectElementObj = { classed: 'd3g-pager-sizer' },
+				pagerSizerAppendedObj = { classed: 'd3g-pager-sizer-text-prepend' };
 
 			var pagerSizer = createSingleDomElement(pagerContainer, pagerSizerWrapperObj);
 
@@ -56,18 +56,18 @@ d3G.Grid.Pager = (function ($, d3, undefined) {
 		}
 
 		function _createPageNavigation(pagerContainer) {
-			var navigationWrapperObj = { classed: 'gc-pager-nav' };
+			var navigationWrapperObj = { classed: 'd3g-pager-nav' };
 			var buttons = [
-				{ Label: 'First', Icon: 'gcgrid-first', UpdatePageIndex: function () { pageIndex = 0; } },
-				{ Label: 'Previous', Icon: 'gcgrid-previous', UpdatePageIndex: function () { if (pageIndex != 0) pageIndex -= 1; } },
-				{ Label: 'Next', Icon: 'gcgrid-next', UpdatePageIndex: function () { if (pageIndex != totalPages - 1) pageIndex += 1; } },
-				{ Label: 'Last', Icon: 'gcgrid-last', UpdatePageIndex: function () { pageIndex = totalPages - 1; } }
+				{ Label: 'First', Icon: 'd3g-first', UpdatePageIndex: function () { pageIndex = 0; } },
+				{ Label: 'Previous', Icon: 'd3g-previous', UpdatePageIndex: function () { if (pageIndex != 0) pageIndex -= 1; } },
+				{ Label: 'Next', Icon: 'd3g-next', UpdatePageIndex: function () { if (pageIndex != totalPages - 1) pageIndex += 1; } },
+				{ Label: 'Last', Icon: 'd3g-last', UpdatePageIndex: function () { pageIndex = totalPages - 1; } }
 			];
 
 			var pagerNav = createSingleDomElement(pagerContainer, navigationWrapperObj);
 
 			// appending the buttons
-			pagerContainer.select('.gc-pager-nav')
+			pagerContainer.select('.d3g-pager-nav')
 				.selectAll('a')
 				.data(buttons)
 				.enter()
@@ -83,8 +83,8 @@ d3G.Grid.Pager = (function ($, d3, undefined) {
 		}
 
 		function _createFullScreenModeButton(pagerContainer) {
-			var pagerFullscreenWrapperObj = { classed: 'gc-pager-fullscreen' },
-				pagerFullscreenMessageObj = { classed: 'gc-pager-fullscreen-message' };
+			var pagerFullscreenWrapperObj = { classed: 'd3g-pager-fullscreen' },
+				pagerFullscreenMessageObj = { classed: 'd3g-pager-fullscreen-message' };
 
 			var pagerFullScreen = createSingleDomElement(pagerContainer, pagerFullscreenWrapperObj, 'a');
 
@@ -93,17 +93,17 @@ d3G.Grid.Pager = (function ($, d3, undefined) {
 				.text('fullscreen Mode')
 				.on('click', function (button) {
 					d3.event.preventDefault();
-					var container = $(this).parents('.gcgrid-container');
-					container.toggleClass('gcgrid-fullscreen');
+					var container = $(this).parents('.d3g-container');
+					container.toggleClass('d3g-fullscreen');
 
 					$(window).bind('resize', function () {
 						setTableWrapperHeight(container);
 					});
 
-					if (container.hasClass('gcgrid-fullscreen')) {
+					if (container.hasClass('d3g-fullscreen')) {
 						setTableWrapperHeight(container);
 					} else {
-						$('.gcgrid-table-wrapper').css('height', 'auto');
+						$('.d3g-table-wrapper').css('height', 'auto');
 						$(window).unbind('resize');
 					}
 				});
@@ -114,7 +114,7 @@ d3G.Grid.Pager = (function ($, d3, undefined) {
 			// 'ESC' Exits from fullscreen mode
 			$(document).keyup(function (e) {
 				if (e.keyCode == 27) {
-					$('.gcgrid-container').removeClass('gcgrid-fullscreen');
+					$('.d3g-container').removeClass('d3g-fullscreen');
 				}
 			});
 
@@ -122,15 +122,15 @@ d3G.Grid.Pager = (function ($, d3, undefined) {
 
 		function _createCurrentPageMessage(pagerContainer, data) {
 
-			var pagerMessageWrapperObj = { classed: 'gc-pager-message' };
+			var pagerMessageWrapperObj = { classed: 'd3g-pager-message' };
 
 			var pageMessage = createSingleDomElement(pagerContainer, pagerMessageWrapperObj);
 
 			var pageData = [
-				{ Selector: 'gc-pager-message-title', Content: 'Page ' },
-				{ Selector: 'gc-pager-message-input', Content: currentPage },
-				{ Selector: 'gc-pager-seperator', Content: ' of ' },
-				{ Selector: 'gc-pager-message-total-pages', Content: totalPages }
+				{ Selector: 'd3g-pager-message-title', Content: 'Page ' },
+				{ Selector: 'd3g-pager-message-input', Content: currentPage },
+				{ Selector: 'd3g-pager-seperator', Content: ' of ' },
+				{ Selector: 'd3g-pager-message-total-pages', Content: totalPages }
 			];
 
 
@@ -147,8 +147,8 @@ d3G.Grid.Pager = (function ($, d3, undefined) {
 		}
 
 		function _createFooterToolbar(pagerContainer, data) {
-			var footerToolbarObj = { classed: 'gcgrid-pager-toolbar' },
-			toolsWrapperClassObj = { classed: 'gcgrid-pager-toolbar-tools' };
+			var footerToolbarObj = { classed: 'd3g-pager-toolbar' },
+			toolsWrapperClassObj = { classed: 'd3g-pager-toolbar-tools' };
 
 			var footerToolbarContainer = createSingleDomElement(pagerContainer, footerToolbarObj);
 
@@ -166,7 +166,7 @@ d3G.Grid.Pager = (function ($, d3, undefined) {
 		}
 		
 		function _createFooterText(pagerContainer, content) {
-			var wrapperClassObj = { classed: 'gcgrid-pager-footer-text', 'content': content },
+			var wrapperClassObj = { classed: 'd3g-pager-footer-text', 'content': content },
 				footerTextContainer = {};
 
 			var footerTextContainer = createSingleDomElement(pagerContainer, wrapperClassObj);
@@ -181,7 +181,7 @@ d3G.Grid.Pager = (function ($, d3, undefined) {
 		function setTableWrapperHeight(container) {
 			// max height for the table container
 			var accesoriesHeight = $(opt.pagerSelector).height();
-			var gcHeader = $('.gcgrid-header');
+			var gcHeader = $('.d3g-header');
 
 			if (gcHeader) {
 				accesoriesHeight += gcHeader.height();
@@ -189,7 +189,7 @@ d3G.Grid.Pager = (function ($, d3, undefined) {
 
 			var tableMaxHeight = $(window).height() - accesoriesHeight;
 
-			container.find('.gcgrid-table-wrapper').css('height', tableMaxHeight);
+			container.find('.d3g-table-wrapper').css('height', tableMaxHeight);
 		}
 
 
@@ -218,12 +218,12 @@ d3G.Grid.Pager = (function ($, d3, undefined) {
 		return {
 			render: function (data) {
 				var pagerContainer = {},
-					wrapperPagerObject = [{ classed: 'gcgrid-pager-wrapper' }],
-					topWrapperObject = { classed: 'gcgrid-pager-top-wrapper' },
+					wrapperPagerObject = [{ classed: 'd3g-pager-wrapper' }],
+					topWrapperObject = { classed: 'd3g-pager-top-wrapper' },
 					pagerTopWrapper = {};
 
 				pagerContainer = d3.select(opt.pagerSelector)
-					.classed('gcgrid-pager', true)
+					.classed('d3g-pager', true)
 					.selectAll('div')
 					.data(wrapperPagerObject);
 				pagerContainer

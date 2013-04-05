@@ -127,7 +127,6 @@
   <ItemGroup>
     <Content Include="D3 LICENSE.txt" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\d3.v3.js" />
     <Content Include="Scripts\d3.v3.min.js" />
@@ -147,6 +146,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\images\" />
+    <Folder Include="Content\style\" />
     <Folder Include="Views\Shared\" />
   </ItemGroup>
   <ItemGroup>

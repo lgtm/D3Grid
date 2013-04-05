@@ -11,7 +11,7 @@ d3G.Grid.Table = (function ($, d3, undefined) {
 		if(opt.tableTitle ) {
 			var headerContainer = d3.select(opt.containerSelector)
 				.insert('div', opt.tableSelector)
-				.classed('gcgrid-header', true)
+				.classed('d3g-header', true)
 				.append('span')
 				.attr('id', opt.tableSelector.replace(/#/gi, '') + 'Header')
 				.html(opt.tableTitle);
@@ -20,7 +20,7 @@ d3G.Grid.Table = (function ($, d3, undefined) {
 	
 	function getTableStyling(opt){
 		var data = opt.tableStyling;
-		var stylingClasses = 'table gcgrid-table';
+		var stylingClasses = 'table d3g-table';
 
 		var bordered 	=	(typeof data !== 'undefined' && typeof data.bordered !== 'undefined') ? data.bordered : true;
 		var condensed 	=	(typeof data !== 'undefined' && typeof data.bordered !== 'undefined') ? data.condensed : false;
@@ -37,7 +37,7 @@ d3G.Grid.Table = (function ($, d3, undefined) {
 	
 	function _create(opt) {
 		createHeader(opt);
-		$(opt.tableSelector).wrap('<div class="gcgrid-table-wrapper" />');
+		$(opt.tableSelector).wrap('<div class="d3g-table-wrapper" />');
 		var sortChangedCallbacks = $.Callbacks(),
 			sortColumnName = opt.defaultSortColumn || '',
 			sortAscending = (opt.defaultSortDirection && opt.defaultSortDirection === 'Descending') ? false : true,
@@ -58,10 +58,10 @@ d3G.Grid.Table = (function ($, d3, undefined) {
 
 		formatters = $.extend(opt.formatters || {}, formatters);
 
-		$(opt.tableSelector).on('click', 'th.gcgrid-sortable', function () {
+		$(opt.tableSelector).on('click', 'th.d3g-sortable', function () {
 			var $selectedColumn = $(this),
 				selectedColumnName = $selectedColumn.data('sort-column'),
-				isActiveSort = $selectedColumn.hasClass('gcgrid-sort-active');
+				isActiveSort = $selectedColumn.hasClass('d3g-sort-active');
 
 			// handle tracking sort column and direction here.
 			sortColumnName = selectedColumnName;
@@ -91,7 +91,7 @@ d3G.Grid.Table = (function ($, d3, undefined) {
 
 					tableHeader = table
 						.append('thead')
-						.classed('gcgrid-table-header', true)
+						.classed('d3g-table-header', true)
 						.append('tr')
 						.selectAll('th')
 						.data(visibleColumns)
@@ -99,19 +99,19 @@ d3G.Grid.Table = (function ($, d3, undefined) {
 						.append('th')
 						.attr('class', function (d) {
 
-							var classValues = 'gc-header-' + d.index;
+							var classValues = 'd3g-header-' + d.index;
 
 							if (d.isSortable === true) {
-								classValues = classValues + ' gcgrid-sortable';
+								classValues = classValues + ' d3g-sortable';
 							}
 
 							if (d.sortColumnName == sortColumnName) {
-								classValues = classValues + ' gcgrid-sort-active';
+								classValues = classValues + ' d3g-sort-active';
 
 								if (sortAscending) {
-									classValues = classValues + ' gcgrid-sort-asc';
+									classValues = classValues + ' d3g-sort-asc';
 								} else {
-									classValues = classValues + ' gcgrid-sort-desc';
+									classValues = classValues + ' d3g-sort-desc';
 								}
 							}
 
@@ -126,7 +126,7 @@ d3G.Grid.Table = (function ($, d3, undefined) {
 							var content = d.label;
 							// add sort icon
 							if (d.isSortable === true) {
-								content += '<span class="text-icon gcgrid-sort-icon"></span>';
+								content += '<span class="text-icon d3g-sort-icon"></span>';
 							}
 							return content;
 							
@@ -144,7 +144,7 @@ d3G.Grid.Table = (function ($, d3, undefined) {
 						.data(visibleColumns)
 						.enter()
 						.append('td')
-						.attr('class', function(d){return 'gc-content-' + d.index})
+						.attr('class', function(d){return 'd3g-content-' + d.index})
 						.html(function (d, columnIndex, rowIndex) {
 
 							var columnName = d.name,

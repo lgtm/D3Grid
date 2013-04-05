@@ -1,15 +1,42 @@
+$gridColumnWidth: 65px; 
+
+@import "compass/css3",
+"compass/typography/lists",
+"bootstrap-custom",
+"colors",
+"sprite";
+
+@import "d3g/*.png";
+@include all-d3g-sprites(true);
+
+.table{
+	color: $color-table-font;
+	@include border-radius(0px);
+	font-size: 11px;
+	thead th{
+		text-transform: uppercase;
+		font-size: 12px;
+		background: $color-table-header-bg;
+	}
+
+	&.table-hovered{
+		tbody tr:hover td{
+			background: $color-table-hover;
+		}
+	}
+}
+
 /*----------------------
  * GC Container
  -----------------------*/
- .gcgrid-container{
+ .d3g-container{
  	min-height: 300px;
  }
 
 /*----------------------
  * GC Header
  -----------------------*/
-.gcgrid-header{
-	background: $color-table-title-bg image_url('gc/stage-notch.png') right top no-repeat;
+.d3g-header{
 	text-transform: uppercase;
 	color: $color-table-title-font;
 	font-size: 15px;
@@ -25,14 +52,14 @@
  * GC Table 
  * Most of the styling should come from default table styling
  -----------------------*/
-.gcgrid-table{
+.d3g-table{
 	position: relative; // so the loading animation is contained
 	
 	&.table{
 		margin-bottom: 0px !important;
 		thead th{
 
-			&.gcgrid-sort-active{
+			&.d3g-sort-active{
 				:hover{
 					color: darken($color-table-font, 10%);
 					cursor: pointer;
@@ -44,7 +71,7 @@
 		}
 	}
 
-	.gcgrid-sort-icon{
+	.d3g-sort-icon{
 		margin-left: 5px;
 		display: inline-block;
 	}
@@ -53,16 +80,16 @@
 /*----------------------
  * GC Pager
  -----------------------*/
-.gcgrid-pager{
+.d3g-pager{
 	@include clearfix;
 	width: 100%;
 	background: $color-table-pager;
 
-	.gcgrid-pager-wrapper{
+	.d3g-pager-wrapper{
 		padding: 5px 10px 5px 10px;
 	}
 
-	.gc-pager-nav{
+	.d3g-pager-nav{
 		float: right;
 		@include horizontal-list;
 		margin-right: 5px;
@@ -72,7 +99,7 @@
 			margin: 0px 10px 0 10px;
 		}
 	}	
-	.gc-pager-sizer-select-wrapper{
+	.d3g-pager-sizer-select-wrapper{
 		float: left;
 		margin: 0 5px;
 		width: 50px;
@@ -86,7 +113,7 @@
 		}
 	}
 	
-	.gc-pager-sizer-wrapper span{
+	.d3g-pager-sizer-wrapper span{
 		display: block;
 		font-size: 12px;
 		line-height: 30px;
@@ -95,17 +122,17 @@
 	}
 
 	/* ------- Page selection ------ */
-	.gc-pager-message{
+	.d3g-pager-message{
 		float: right;
 		padding: 0 10px;
 		font-size: 12px;
 		line-height: 30px;
 	}
-	.gc-pager-message-input{
+	.d3g-pager-message-input{
 		font-weight: bold;
 	}
 
-	input.gc-pager-message-input{
+	input.d3g-pager-message-input{
 		width: 25px;
 		text-align: center;
 		margin: 0 5px;
@@ -113,29 +140,29 @@
 		color: $color-table-pager-input-text;
 		border: none;
 	}
-	.gcgrid-pager-top-wrapper{
+	.d3g-pager-top-wrapper{
 		@include clearfix;
 	}
-	.gcgrid-pager-toolbar{
+	.d3g-pager-toolbar{
 		border-top: 1px solid $gray;
 		@include clearfix;
 		padding-top: 5px;
 	}
-	.gcgrid-pager-footer-text{
+	.d3g-pager-footer-text{
 		font-size: 10px;
 	}
 
-	.gc-pager-fullscreen{
+	.d3g-pager-fullscreen{
 		cursor: pointer;
 		margin: 0 auto;
 	}
 
-	.gcgrid-pager-toolbar-tools{
+	.d3g-pager-toolbar-tools{
 		float: right;
 	}
 
 	// hide by default
-	.gc-pager-fullscreen-message{
+	.d3g-pager-fullscreen-message{
 		display: none;
 		font-size: 10px;
 		text-align: center;
@@ -154,27 +181,27 @@
 /*----------------------
  * Fullscreen Mode
  -----------------------*/
-.gcgrid-container.gcgrid-fullscreen{
+.d3g-container.d3g-fullscreen{
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	z-index: 1000;
 
-	.gcgrid-table-wrapper{
+	.d3g-table-wrapper{
 		background: #fff;
 		overflow-y: auto;
 	}
-	.gc-pager-fullscreen-message{
+	.d3g-pager-fullscreen-message{
 		display: block;
 	}
 
-	.gcgrid-table-header {
+	.d3g-table-header {
 		background-color: green;
 		width: 100%;
 	}
 	
-	.gcgrid-pager{	
+	.d3g-pager{	
 		position: fixed;
 		bottom: 0;
 		left: 0;

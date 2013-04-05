@@ -1,0 +1,86 @@
+// ------ Primary Colors ------ //
+// Greens 
+$forest-green: #178232;
+$green: #238e0d;
+$lime-green : #60d41b;
+$bright-green: #1ad339;
+$citron-green : #84a220;
+$random-green: #126e28;
+
+// Blues 
+$dark-blue: #0063a1;
+$blue-gray: #447192;
+$blue: #01a3d4;
+$pale-blue: #c2ddf7;
+$paler-blue: #DDEFFF;
+
+// Grays 
+$light-gray: #dedede;
+$medium-gray: #aeb1b3;
+$gray: #6C7175;
+$dim-gray: #4a5258;
+$dark-gray: #32373C;
+$font-gray: #757a7e;
+$font-dark-gray: #32373c;
+$border-light-gray: #ccc;
+
+// ------- Secondary Colors ------ //   
+$red: #B51F14;
+$yellow: #ffff29;
+$orange: #ff6600;
+$pale-yellow: #fdf8b9;
+$white: #fff;
+$pink: #f0d6d5;
+
+// ---------------- Defaults ----------------//
+
+// Fonts
+$color-link: $blue-gray;
+$color-link-light: $light-gray;
+$color-h2-modal: $gray;
+$color-h3: $dim-gray;
+$color-h4: $forest-green;
+$color-h6: $font-dark-gray;
+$color-active-font: $forest-green;
+$color-inactive-font: $dim-gray;
+
+$color-font: black;
+$color-font-alt: #333;
+$color-font-light: $gray;
+$color-font-em: $blue-gray; 
+$color-font-more: #a5abaf;
+$color-font-active: $green;
+
+// Shadows
+$color-shadow: $gray;
+$color-shadow-light: #ccc;
+
+// Backgrounds
+$color-bg-dark: $gray;
+$color-bg-dark-alt: #ebebeb;
+$color-bg-hover: $forest-green;
+$color-header-bg: $gray;
+
+// Borders
+$color-border: $dim-gray;
+$color-border-light: $light-gray;
+
+//hr
+$color-hr: $dim-gray;
+
+// ---------------- Tables ----------------//
+$color-table-font: $dim-gray;
+$color-table-header-bg: #ebebeb;
+$color-table-header-bg-alt: $gray;
+$color-table-border: $light-gray;
+$color-table-border-light: #ccc;
+$color-table-pager-input-bg: $dim-gray;
+$color-table-pager-input-text: white;
+$color-table-inactive-font: $medium-gray;
+$color-table-alt-row-bg: rgba($light-gray, 0.25);
+$color-table-hover: $light-gray;
+$color-table-link-font: $dark-blue;
+$color-table-title-font: white;
+$color-table-title-bg: $color-bg-dark;
+$color-table-border: $medium-gray;
+$color-table-pager: $color-table-header-bg;

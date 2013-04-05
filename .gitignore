@@ -15,4 +15,7 @@ App_Data/
 *.sassc
 *.scssc
 .sass-cache
-/Dalton.Web/Content/Style/site.css
+/D3Grid.Mvc4Demo/Content/style
+/D3Grid.Mvc4Demo/Content/images/d3g-*.png
+/D3Grid.Core/Content/style
+/D3Grid.Core/Content/images/d3g-*.png
