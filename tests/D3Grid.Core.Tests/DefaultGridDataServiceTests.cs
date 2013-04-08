@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Linq;
-using NUnit.Framework;
+using Xunit;
 
 namespace D3Grid.Core.Tests
 {
-	[TestFixture]
 	public class DefaultGridDataServiceTests
 	{
-		[Test]
+		[Fact]
 		public void when_no_contentType_provided_throws()
 		{
 			IGridDataService dataService = new DefaultGridDataService();
