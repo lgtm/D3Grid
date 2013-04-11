@@ -1,9 +1,10 @@
 ﻿/*jshint undef:true, es5:true, camelcase:true, forin:true, curly:true, eqeqeq:true */
-/*global window */
+/*global window, d3G */
 
 /// <reference path="Scripts/jquery-1.9.1.intellisense.js" />
 /// <reference path="Scripts/d3.v3.js" />
 
+window.d3G = window.d3G || {};
 (function ($, d3, d3G, window, undefined) {
 
 	function _ensureOptions(options) {
@@ -101,4 +102,4 @@
 		create: _create
 	};
 
-}(window.jQuery, window.d3, window.d3G || {}, window));
+}(window.jQuery, window.d3, window.d3G, window));

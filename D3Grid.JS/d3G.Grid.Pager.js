@@ -6,10 +6,7 @@
 /// <reference path="d3G.Grid.js" />
 /// <reference path="d3G.Grid.Table.js" />
 
-var d3G = d3G || {};
-d3G.Grid = d3G.Grid || {};
-
-d3G.Grid.Pager = (function ($, d3, d3G, window, undefined) {
+(function ($, d3, d3G, window, undefined) {
 
 	function _create(opt) {
 
