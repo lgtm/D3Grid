@@ -1,3 +1,5 @@
+[![Build Status](http://teamcity.codebetter.com/app/rest/builds/buildType:%28id:bt979%29/statusIcon)](http://teamcity.codebetter.com/viewType.html?buildTypeId=bt979&guest=1)
+
 D3Grid
 ======
 
